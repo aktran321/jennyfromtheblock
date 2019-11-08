@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS burgers;
-CREATE DATABASE burgers;
+DROP DATABASE IF EXISTS jennyfromtheblock_db;
+CREATE DATABASE jennyfromtheblock_db;
