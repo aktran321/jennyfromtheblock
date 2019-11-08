@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
     let ClassInfo = sequelize.define("classInfo", {
-    classTimeID:{
+    class_TimeID:{
         type:DataTypes.Time,
         allowNull: false,
     },
-    classID: {
+    class_ID: {
         type: DataTypes.INTEGER,
         allowNull: false,
     }, 
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull:false
     },
-    startTime:{
+    start_Time:{
         type: DataTypes.TIME,
         allowNull:false,
     }
