@@ -1,16 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
     let Class = sequelize.define("class", {
-    classID: {
+    class_ID: {
         type: DataTypes.INTEGER,
         allowNull: false,
     }, 
-    subID: {
-        type: DataTypes.INTEGER
+    subject_ID: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
     },
-    classname:{
-        type: DataTypes.STRING
+    class_name:{
+        type: DataTypes.STRING,
+        allowNull: false,
     }
-
     });
-    return Subject;
+    return Class;
 };

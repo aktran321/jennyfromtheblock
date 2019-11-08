@@ -2,14 +2,15 @@ module.exports = function(sequelize, DataTypes) {
   
   let Subject = sequelize.define("subject", {
     
-    subID: {
+    subject_ID: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    subjectname: {
-      type: DataTypes.STRING
-    }
-    
+    subject_name: {
+      type: DataTypes.STRING,
+      allowNull:false
+    }    
   });
+
   return Subject;
 };
