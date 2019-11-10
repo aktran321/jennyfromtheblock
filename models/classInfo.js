@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     let ClassInfo = sequelize.define("classInfo", {
     class_TimeID:{
-        type:DataTypes.Time,
+        type:DataTypes.TIME,
         allowNull: false,
     },
     class_ID: {
