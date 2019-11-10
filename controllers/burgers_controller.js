@@ -7,18 +7,18 @@ const db = require("../models");
 // ====================================================
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    db.Burgers.findAll({}).then(function(result) {
-      var burgerObj = {
+    db.Class.findAll({}).then(function(result) {
+      var classObj = {
         burgers: result
       };
-      res.render("index", burgerObj);
+      res.render("index", classObj);
     }).catch(function(err){
       res.json(400, err);
     });
   });
   // ====================================================
-  app.post("/api/burgers", function(req, res){
-    db.Burgers.create({
+  app.post("/api/classes", function(req, res){
+    db.Class.create({
       burger_name: req.body.burger_name
     }).then(function(result){
       res.json(result);
@@ -27,9 +27,9 @@ module.exports = function(app) {
     });
   });
   // ====================================================
-  app.put("/api/burgers/:id", function(req, res) {
+  app.put("/api/classes/:id", function(req, res) {
     console.log(req.body.devoured);
-    db.Burgers.update({
+    db.Class.update({
       devoured: req.body.devoured
     }, { 
       where: { id: req.params.id }
@@ -40,8 +40,8 @@ module.exports = function(app) {
     });
   });
   // ====================================================
-  app.delete("/api/burgers/:id", function(req, res) {
-    db.Burgers.destroy({
+  app.delete("/api/classes/:id", function(req, res) {
+    db.Class.destroy({
       where: {
         id: req.params.id
       }
