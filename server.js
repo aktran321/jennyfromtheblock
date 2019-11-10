@@ -19,7 +19,7 @@ app.set("view engine", "handlebars");
 // ====================================================
 // ROUTES
 // ====================================================
-require("./controllers/burgers_controller.js")(app);
+require("./controllers/jenny_controller.js")(app);
 // ====================================================
 // LISTEN
 // ====================================================
