@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   
-  let Subject = sequelize.define("subject", {
+  let Subject = sequelize.define("Subject", {
     
     subject_ID: {
       type: DataTypes.INTEGER,
@@ -9,7 +9,13 @@ module.exports = function(sequelize, DataTypes) {
     subject_name: {
       type: DataTypes.STRING,
       allowNull:false
-    }    
+    },
+    inSchedule: {
+      type: DataTypes.BOOLEAN, 
+      defaultValue: false,
+      allowNull: false
+    }
+        
   });
 
   return Subject;

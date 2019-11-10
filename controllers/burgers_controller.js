@@ -7,19 +7,20 @@ const db = require("../models");
 // ====================================================
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    db.Class.findAll({}).then(function(result) {
-      var classObj = {
-        burgers: result
+    db.Subject.findAll({}).then(function(result) {
+      var subjectObj = {
+        subject: result
       };
-      res.render("index", classObj);
+      res.render("index", subjectObj);
     }).catch(function(err){
-      res.json(400, err);
+      //changed syntax from res.json(400, err) cause was getting an error
+      res.status(400).json(err);
     });
   });
   // ====================================================
   app.post("/api/classes", function(req, res){
     db.Class.create({
-      burger_name: req.body.burger_name
+      class_name: req.body.class_name
     }).then(function(result){
       res.json(result);
     }).catch(function(err){
@@ -28,9 +29,9 @@ module.exports = function(app) {
   });
   // ====================================================
   app.put("/api/classes/:id", function(req, res) {
-    console.log(req.body.devoured);
+    console.log(req.body.selected);
     db.Class.update({
-      devoured: req.body.devoured
+      selected: req.body.selected
     }, { 
       where: { id: req.params.id }
     }).then(function(result){
