@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron jumbo-logo">
     <div class="container">
-      <img src="/assets/img/chzbgr-sequel-logo.svg" class="chzbgr-logo">
+     <!-- <img src="/assets/img/chzbgr-sequel-logo.svg" class="chzbgr-logo"> -->
     </div>
   </div>
 </div>
@@ -13,7 +13,7 @@
       <div class="jumbotron classes-to-take">
         <h4>Classes</h4>
         <ul class="list-group list-group-flush">
-          {{#each subject}} {{#unless inSchedule}}
+          {{#each subjects}} {{#unless inSchedule}}
           <li class="list-group-item">
             {{subject_name}}
             <button class="btn btn-secondary not-in-schedule" data-id="{{id}}">ADD</button>
@@ -29,7 +29,7 @@
       <div class="jumbotron classes-added">
         <h4>Burgers Eaten</h4>
         <ul class="list-group list-group-flush">
-          {{#each subject}} {{#if inSchedule}}
+          {{#each subjects}} {{#if inSchedule}}
           <li class="list-group-item">
             {{subject_name}}
             <button class="btn btn-secondary in-schedule" data-id="{{id}}">DELETE</button>
@@ -42,17 +42,17 @@
   </div>
 </div>
 
-{{!-- ADD A NEW CLASS --}}
+{{!-- ADD A NEW Subject --}}
 <div class="container">
   <div class="row">
     <div class="col-12">
       <div class="jumbotron class-add">
-        <h4>What kind of burger are you craving?</h4>
+        <h4>Pick your subjects</h4>
         <form>
           <div class="form-group">
-            <label for="new-burger"></label>
-            <input type="text" class="form-control" id="new-class" placeholder="">
-            <button type="submit" class="add-class btn btn-secondary">Add Burger</button>
+            <label for="add-subject"></label>
+            <input type="text" class="form-control" id="add-subject" placeholder="">
+            <button type="submit" class="add-class btn btn-secondary">Add subject</button>
           </div>
         </form>
       </div>

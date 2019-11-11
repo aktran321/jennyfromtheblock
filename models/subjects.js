@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   
-  let Subject = sequelize.define("Subject", {
+  var Subjects = sequelize.define("Subjects", {
     
-    subject_ID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    // subject_ID: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
     subject_name: {
       type: DataTypes.STRING,
       allowNull:false
@@ -18,5 +18,5 @@ module.exports = function(sequelize, DataTypes) {
         
   });
 
-  return Subject;
+  return Subjects;
 };

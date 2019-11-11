@@ -7,9 +7,9 @@ const db = require("../models");
 // ====================================================
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    db.Subject.findAll({}).then(function(result) {
+    db.Subjects.findAll({}).then(function(result) {
       var subjectObj = {
-        subject: result
+        subjects: result
       };
       res.render("index", subjectObj);
     }).catch(function(err){
@@ -18,9 +18,9 @@ module.exports = function(app) {
     });
   });
   // ====================================================
-  app.post("/api/classes", function(req, res){
-    db.Class.create({
-      class_name: req.body.class_name
+  app.post("/api/subjects", function(req, res){
+    db.Subjects.create({
+      subject_name: req.body.subject_name
     }).then(function(result){
       res.json(result);
     }).catch(function(err){

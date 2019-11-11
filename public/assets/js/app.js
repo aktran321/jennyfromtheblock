@@ -1,17 +1,17 @@
 $(function () {
-  $(".add-burger").on("click", function (event) {
+  $(".add-class").on("click", function (event) {
     event.preventDefault();
     var id = $(this).data("id");
 
-    var newBurger = {
-        burger_name: $("#new-burger").val().trim()
+    var newSubject = {
+        subject_name: $("#add-subject").val().trim(),
     };
 
-    $.ajax("/api/burgers", {
+    $.ajax("/api/subjects", {
       type: "POST",
-      data: newBurger
+      data: newSubject
     }).then(function () {
-      console.log("Created new burger.");
+      console.log("Created new subject.");
       location.reload();
     });
   });
