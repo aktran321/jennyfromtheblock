@@ -1,22 +1,27 @@
 module.exports = function(sequelize, DataTypes) {
-    let ClassInfo = sequelize.define("classInfo", {
-    class_TimeID:{
-        type:DataTypes.TIME,
-        allowNull: false,
-    },
-    class_ID: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    }, 
-    day:{
-        type: DataTypes.STRING,
-        allowNull:false
-    },
-    start_Time:{
-        type: DataTypes.TIME,
-        allowNull:false,
+    var AllData = sequelize.define("AllData", {
+    subject_code: DataTypes.STRING,
+    subject_name: DataTypes.STRING,
+    number_title: DataTypes.STRING,
+    sec: DataTypes.INTEGER,
+    cr: DataTypes.INTEGER,
+    start_time: DataTypes.TIME,
+    end_time: DataTypes.TIME,
+    day_code: DataTypes.STRING,
+    inSchedule: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false
     }
+    });  
 
-    });
-    return ClassInfo;
+    AllData.associate = function(models) {
+    AllData.belongsTo(models.Classes, { 
+        foreignKey: "ClassId"
+    })
+    AllData.belongsTo(models.Subjects, { 
+        foreignKey: "SubjectId"
+    })
+    };
+    return AllData;
 };

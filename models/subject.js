@@ -1,24 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
-  
-  let Subject = sequelize.define("Subject", {
-    
-    // subject_ID: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    // },
-    subject_name: {
-      type: DataTypes.STRING,
-      allowNull:false
-    },
-    inSchedule: {
-      type: DataTypes.BOOLEAN, 
-      defaultValue: false,
-      allowNull: false
-    }
-        
+  var Subjects = sequelize.define("Subjects", {
+    subject_name: DataTypes.STRING
   });
-Subject.associate = function(models){
-  Subject.hasMany(models.Class,{as: Class, foreignKey: "subject_ID"})
-}
-  return Subject;
+  Subjects.create({ subject_name: 'BIOL-Biology' })
+  .then(function() {});
+  Subjects.create({ subject_name: 'COMM-Communications' })
+  .then(function() {});
+  Subjects.create({ subject_name: 'ENGL-English' })
+  .then(function() {});
+
+
+  Subjects.associate = function(models) {
+    Subjects.hasMany(models.AllData, {});
+    Subjects.hasMany(models.Classes, {});
+  };
+
+  return Subjects;
+  
 };
